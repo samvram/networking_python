@@ -13,19 +13,19 @@ send_addr = (send_host, port)
 send = socket(AF_INET, SOCK_DGRAM)
 
 
-print "Talk you piece of shit..."
+print("Talk you piece of shit...")
 while True:
 #    print "Waiting to Receive"
     (receive_data, receive_addr) = receive.recvfrom(buf)
-    print "Received message: " + receive_data
+    print("Received message: " + receive_data)
     if receive_data == "exit":
         break
     
 #    print "Your turn to Speak"    
-    send_data = raw_input("Enter message to send or type 'exit': ")
+    send_data = input("Enter message to send or type 'exit': ")
     send.sendto(send_data, send_addr)
     if send_data == "exit":
-	break
+        break
 	
 send.close()
 receive.close()
